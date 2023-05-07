@@ -11,10 +11,33 @@
 
 'a10b9r10ce33uab8wc918v2cv11v9'.match(/([rev])(10|[0-9])/g)
 
-function solution(data){
+
+// ?<변수명> 으로 그루핑 가능
+const regex = /(?<one>[rev])(?<two>10|[0-9])/g;
+const replacedString = 'a10b9r10ce33uab8wc918v2cv11v9'.replace(regex, "[$<one>]($<two>)");
+replacedString
+
+
+const regex2 = /([rev])(10|[0-9])/g;
+regex2.exec('a10b9r10ce33uab8wc918v2cv11v9') // global 옵션이 있어도 하나만 줌
+// 다만 계속해서 실행시키면 다음 값을 줌
+regex2.exec('a10b9r10ce33uab8wc918v2cv11v9')
+regex2.exec('a10b9r10ce33uab8wc918v2cv11v9')
+// 이러한 특징을 이용해서 아래와 같은 구문을 만들 수 있음
+
+let myString = "a10b9r10ce33uab8wc918v2cv11v9"
+myRegexp = /([rev])(10|[0-9])/g
+let result = undefined
+
+while (result = myRegexp.exec(myString)) {
+    console.log(result, myRegexp.lastIndex);
+}
+
+
+function solution(data) {
     result = 0
     data = data.match(/([rev])(10|[0-9])/g)
-    for (i of data){
+    for (i of data) {
         result += parseInt(i.slice(1))
     }
     result = result.toString()
