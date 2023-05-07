@@ -129,9 +129,11 @@ data = [['A', 25, 25, 25, 25],
 ['C', 24, 22, 23, 21],
 ['D', 13, 22, 16, 14],
 ]
+data = [['A', 25, 25, 25, 25], ['B', 10, 12, 13, 11], ['C', 24, 22, 23, 21], ['D', 13, 22, 16, 14], ['E', 25, 25, 25, 25]]
+
 function solution(data) {
     let 길이 = data.length
-    let 선발해야하는인원 = parseInt((길이 * 3) / 10)
+    let 선발해야하는인원 = parseInt(길이 * 0.3)
     if (선발해야하는인원 === 0) {
         return []
     }
@@ -142,26 +144,25 @@ function solution(data) {
         let 합 = i.slice(1).reduce((x, y) => x + y, 0)
         if (합 in 점수모음) {
             점수모음[합].push(i[0])
-        }
-        else {
+        } else {
             점수모음[합] = [i[0]]
         }
     }
 
-    console.log(점수모음)
-    // 점수모음 순으로 정렬
     점수모음 = Object.entries(점수모음)
     점수모음.sort((a, b) => b[0] - a[0])
     for (let i of 점수모음) {
-        if (선발된인원 <= 선발해야하는인원 && i[1].length <= 선발해야하는인원 && 선발된인원 != 선발해야하는인원) {
+        if (선발된인원 < 선발해야하는인원 && i[1].length <= 선발해야하는인원) {
             선발인원.push(...i[1])
             선발된인원 += i[1].length
         }
         else if (i[1].length > 선발해야하는인원) {
             return 선발인원
         }
+        선발해야하는인원 - 선발된인원
     }
     선발인원.sort().reverse()
     return 선발인원
 }
+solution(data)
 solution(data)

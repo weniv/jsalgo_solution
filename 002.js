@@ -26,18 +26,18 @@ regex2.exec('a10b9r10ce33uab8wc918v2cv11v9')
 // 이러한 특징을 이용해서 아래와 같은 구문을 만들 수 있음
 
 let myString = "a10b9r10ce33uab8wc918v2cv11v9"
-myRegexp = /([rev])(10|[0-9])/g
+let myRegex = /([rev])(10|[0-9])/g
 let result = undefined
 
-while (result = myRegexp.exec(myString)) {
-    console.log(result, myRegexp.lastIndex);
+while (result = myRegex.exec(myString)) {
+    console.log(result, myRegex.lastIndex);
 }
 
 
 function solution(data) {
-    result = 0
+    let result = 0
     data = data.match(/([rev])(10|[0-9])/g)
-    for (i of data) {
+    for (let i of data) {
         result += parseInt(i.slice(1))
     }
     result = result.toString()

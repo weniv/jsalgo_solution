@@ -17,21 +17,21 @@ parseInt('1101010', 2)
 
 String.fromCharCode(106)
 
-for (i of data.split('\n')){
+for (let i of data.split('\n')) {
     console.log(i)
 }
 
 
-result = ''
-for (i of data.split('\n')){
+let result = ''
+for (let i of data.split('\n')) {
     i = i.replace(/ /g, '').replace(/\+/g, '1').replace(/\-/g, '0')
     result += String.fromCharCode(parseInt(i, 2))
 }
 
 // 정답
-function solution(data){
-    result = ''
-    for (i of data){
+function solution(data) {
+    let result = ''
+    for (i of data) {
         i = i.replace(/ /g, '').replace(/\+/g, '1').replace(/\-/g, '0')
         result += String.fromCharCode(parseInt(i, 2))
     }
