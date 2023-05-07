@@ -159,7 +159,6 @@ function solution(data) {
         else if (i[1].length > 선발해야하는인원) {
             return 선발인원
         }
-        선발해야하는인원 - 선발된인원
     }
     선발인원.sort().reverse()
     return 선발인원
