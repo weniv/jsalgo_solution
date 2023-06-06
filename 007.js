@@ -1,12 +1,12 @@
 function solution(data) {
-    result = []
-    data[0].forEach((e, i) => {
+    let result = []
+    data[0].forEach((v, i) => {
         for (let j = i + 1; j < data[0].length; j++) {
-            if (e + data[0][j] == data[1]) {
+            if (v + data[0][j] == data[1]) {
                 result.push(i, j)
             }
         }
-    });
+    })
     return result
 }
 

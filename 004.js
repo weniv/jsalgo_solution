@@ -13,9 +13,9 @@ let a = data[0].match(/[a-zA-Z]/g)
 let b = data[0].match(/\d+/g)
 new Map(zip(a, b))
 
-훈련수치 = new Map()
-훈련수치['one'] = '하나'
-'one' in 훈련수치
+test = new Map()
+test['one'] = '하나' // 이렇게 넣으시면 안되고 set으로 넣으셔야 합니다.
+'one' in 훈련수치 // 이렇게 확인하면 안되고 has로 확인해야 합니다.
 
 // 1번 시도
 const map = new Map([
@@ -48,10 +48,10 @@ min // 1
 
 
 function solution(data) {
-    훈련수치 = new Map()
-    고민수치 = new Map()
-    원래미래 = 0
-    바뀐미래 = 0
+    let 훈련수치 = new Map()
+    let 고민수치 = new Map()
+    let 원래미래 = 0
+    let 바뀐미래 = 0
 
     // 훈련수치
     for (const i of data[0].split('.').slice(0, -1)) {

@@ -1,4 +1,8 @@
 let data = [[0, 0, '#', '#'], ['#', '#', 0, '#'], [0, '#', '#', 0]]
+data = data.flat()
+data[0 + 4]
+
+let data = [[0, 0, '#', '#'], ['#', '#', 0, '#'], [0, '#', '#', 0]]
 for (let i = 0; i < data.length; i++) {
     for (let j = 0; j < data[0].length; j++) {
         console.log(data[i][j])
@@ -39,13 +43,13 @@ for (let i = 0; i < data.length; i++) {
                     data[i + 1][j + 1] += 1
                 }
             }
-            // (왼쪽 대각선) 우 대각선 상
+            // (오른쪽 대각선) 우 대각선 상
             if (j != data[0].length - 1 && i != 0) {
                 if (data[i - 1][j + 1] != '#') {
                     data[i - 1][j + 1] += 1
                 }
             }
-            // (왼쪽 대각선) 좌 대각선 하
+            // (오른쪽 대각선) 좌 대각선 하
             if (j != 0 && i != data.length - 1) {
                 if (data[i + 1][j - 1] != '#') {
                     data[i + 1][j - 1] += 1
