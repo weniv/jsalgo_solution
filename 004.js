@@ -55,8 +55,8 @@ function solution(data) {
 
     // 훈련수치
     for (const i of data[0].split('.').slice(0, -1)) {
-        key = i.match(/[a-zA-Z]/g)[0]
-        value = i.match(/\d+/g)[0]
+        let key = i.match(/[a-zA-Z]/g)[0]
+        let value = i.match(/\d+/g)[0]
         // console.log(i)
         if (훈련수치.has(key)) {
             훈련수치.set(key, 훈련수치.get(key) + parseInt(value))
@@ -67,8 +67,8 @@ function solution(data) {
 
     // 고민수치
     for (const i of data[1].split('.').slice(0, -1)) {
-        key = i.match(/[a-zA-Z]/g)[0]
-        value = i.match(/\d+/g)[0]
+        let key = i.match(/[a-zA-Z]/g)[0]
+        let value = i.match(/\d+/g)[0]
         // console.log(i)
         if (고민수치.has(key)) {
             고민수치.set(key, 고민수치.get(key) + parseInt(value))
